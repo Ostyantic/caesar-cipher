@@ -31,5 +31,15 @@ def decrypt(text, shift):
     return encrypt(text, -shift)
 
 
+# worked with Brenden Moore to solve
 def crack(text):
+    for shift in range(26):
+        cracked = encrypt(text, -shift)
+        if "the" in cracked.lower() and "of" in cracked.lower():
+            return cracked
+    return ""
+
+
+if __name__ == "__main__":
+    # crack("Hello")
     pass
